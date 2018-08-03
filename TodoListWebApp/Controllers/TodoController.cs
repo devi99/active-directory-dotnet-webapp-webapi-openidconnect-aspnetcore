@@ -68,8 +68,9 @@ namespace TodoListWebApp.Controllers
                     return ProcessUnauthorized(itemList, authContext);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine(ex.InnerException.ToString());
                 if (HttpContext.Request.Query["reauth"] == "True")
                 {
                     //
